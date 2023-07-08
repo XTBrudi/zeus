@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image" href="images/MainZeus.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    
+    <title>Z3US - ARK CHEATS</title>
+</head>
+<body>
+    <div class="main_top">
+        <div class="logo-container">
+            <img src="images/Zeus512p.png" class="logo" style="height: 150px; width: 150px;">
+        </div>
+        <div class="wall"></div>
+        <div class="logos-container">
+            <div class="link_buttons_container">
+                <a href="http://www.discord.com/" class="link_button"><i class="fa-brands fa-discord fa-2xl" id="logo"></i></a>
+                <a href="http://www.youtube.com/" class="link_button"><i class="fa-brands fa-youtube fa-2xl" id="logo"></i></a>
+                <a href="http://www.tiktok.com/" class="link_button"><i class="fa-brands fa-tiktok fa-2xl" id="logo"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="wip">
+        <i class="fa-solid fa-hourglass-start" id="clock"></i>
+        <h3 id="countdown"></h3>
+        <h2>This site is Work in progress, please retry again later :(</h2>
+        <div class="button ">
+            <div class="text-icon">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              <span class="text">Download Info txt</span>
+        </div>
+    </div>
+
+    <script>
+        const button = document.querySelector(".button"),
+          text = document.querySelector(".text");
+        button.addEventListener("click", () => {
+          button.classList.add("progress");
+          text.innerText = "Downloading...";
+          setTimeout(() => {
+            button.classList.remove("progress"); //remove progress after 6s
+            text.innerText = "See your Downloads!";
+      
+            // Create a dynamic <a> element
+            const link = document.createElement("a");
+            link.href = "downloads/Zeus_info.txt";
+            link.download = "Zeus_info.txt";
+      
+            // Simulate a click event on the dynamic <a> element
+            link.click();
+          }, 6000);
+        });
+      </script>
+      <script src="index.js"></script>
+</body>
+</html>
