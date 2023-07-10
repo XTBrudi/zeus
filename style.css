@@ -1,233 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Montserrat:wght@300&family=Nunito:wght@300&family=Poppins:wght@200&family=Roboto+Mono&display=swap');
-
-* {
-    font-family: 'Heebo', sans-serif;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-body {
-    background-color: rgb(54, 54, 54);
-    margin: 0;
+html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: black;
+  background-size: cover;
+  background-position: center;
 }
-
-.main_top {
-    margin: 0;
-    height: 150px;
-    background-color: rgb(58, 58, 58);
-    box-shadow: -1px 10px 15px 5px #414141;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+::selection{
+  color: #ffffff;
+  background: #FC4782;
 }
-
-.logo-container {
-    margin-right: 20px;
+.wrapper{
+  color: #fff;
+  max-width: 900px;
+  text-align: center;
+  padding: 0 50px;
 }
-
-.logo {
-    height: 120px;
-    width: 120px;
+.wrapper .title{
+  font-size: 35px;
+  font-weight: 500;
 }
-
-.logos-container {
-    display: flex;
-    align-items: center;
+.wrapper .title span{
+  font-weight: 700;
 }
-
-.wall {
-    height: 100px;
-    width: 1px;
-    background-image: linear-gradient(to bottom, transparent, rgb(22, 22, 22) 40%, transparent);
+.wrapper form{
+  margin: 50px 0;
 }
-
-.link_buttons_container {
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-    margin-right: 20px;
+.wrapper form .email-field{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.link_button {
-    color: black;
-    margin-left: 10px;
-    transition: color 0.5s;
+form .email-field input{
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  border: none;
+  outline: none;
+  font-size: 18px;
 }
-
-.link_button:hover {
-    color: rgb(74, 13, 131);
+form .email-field button{
+  height: 100%;
+  width: 200px;
+  outline: none;
+  border: none;
+  background: #1d1d1d;
+  color: #5f5f5f;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
-
-.wip {
-    text-align: center;
-    margin-top: 60px;
-    padding: 0 20px;
+.wrapper .count-down{
+  display: flex;
+  width: 100%;
+  height: 100px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }
-
-.wip h2 {
-    font-size: 40px;
-    margin-top: 20px;
+.wrapper .count-down .timer{
+  height: 100%;
+  width: 100px;
+  /*border: 2px solid;*/
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-#clock {
-    font-size: 100px;
-    color: #181818;
-    margin-top: 50px;
+.count-down .timer .numb{
+  font-size: 25px;
+  font-weight: 500;
 }
-
-.button-container {
-    text-align: center;
-    margin-top: 30px;
+.count-down .timer .text{
+  font-size: 15px;
 }
-
-.button {
-    display: inline-block;
-    height: 55px;
-    max-width: 300px;
-    width: 100%;
-    background: #5600c7;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+.count-down .clone{
+  font-size: 45px;
 }
-
-.button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-}
-
-.button.progress::before {
-    animation: progress 6s ease-in-out forwards;
-}
-
-@keyframes progress {
-    0% {
-        left: -100%;
-    }
-    10% {
-        left: -97%;
-    }
-    20% {
-        left: -92%;
-    }
-    30% {
-        left: -82%;
-    }
-    30% {
-        left: -62%;
-    }
-    40% {
-        left: -38%;
-    }
-    50% {
-        left: -18%;
-    }
-    60% {
-        left: -14%;
-    }
-    80% {
-        left: -7%;
-    }
-    90% {
-        left: -3%;
-    }
-    100% {
-        left: 0%;
-    }
-}
-
-.button .text-icon {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.button .text-icon i,
-.button .text-icon span {
-    position: relative;
-    color: #fff;
-    font-size: 26px;
-}
-
-.button .text-icon span {
+@media (max-width: 630px) {
+  .wrapper .count-down{
+    height: 80px;
+  }
+  .wrapper .count-down .timer{
+    width: 80px;
+  }
+  .count-down .timer .numb{
     font-size: 20px;
-    font-weight: 400;
-    margin-left: 8px;
+  }
+  .count-down .timer .text{
+    font-size: 13px;
+  }
+  .count-down .clone{
+    font-size: 40px;
+  }
 }
-
-/* Responsive Styles */
-
-@media screen and (max-width: 768px) {
-    .main_top {
-        height: auto;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-    }
-
-    .logo-container {
-        margin: 0;
-        margin-bottom: 10px;
-    }
-
-    .logo {
-        height: 80px;
-        width: 80px;
-    }
-
-    .wall {
-        display: none;
-    }
-
-    .logos-container {
-        margin-top: 10px;
-        justify-content: center;
-    }
-
-    .link_buttons_container {
-        margin: 0;
-        margin-top: 10px;
-    }
-
-    .wip h2 {
-        margin-left: 0;
-    }
-
-    #clock {
-        font-size: 60px;
-        margin-left: 0;
-        margin-top: 30px;
-    }
+@media (max-width: 542px){
+  .wrapper{
+    padding: 0 20px;
+  }
+  .wrapper .count-down .timer{
+    border: none;
+  }
+  .count-down .timer .numb{
+    font-size: 28px;
+  }
+  .count-down .timer .text{
+    font-size: 15px;
+  }
+  .count-down .clone{
+    display: none;
+  }
+  .form .email-field button{
+    width: 150px;
+    font-size: 17px;
+  }
 }
-
-@media screen and (max-width: 576px) {
-    .wip h2 {
-        font-size: 32px;
-    }
-
-    #clock {
-        font-size: 40px;
-    }
-
-    .button-container {
-        margin-top: 20px;
-    }
-
-    .button .text-icon i,
-    .button .text-icon span {
-        font-size: 20px;
-    }
-
-    .button .text-icon span {
-        font-size: 16px;
-    }
+@media (max-width: 340px){
+  .wrapper .count-down{
+    height: 30px;
+  }
+  .wrapper .count-down .timer{
+    width: 30px;
+  }
 }
