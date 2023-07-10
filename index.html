@@ -1,60 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image" href="images/MainZeus.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    
-    <title>Z3US - ARK CHEATS</title>
-</head>
-<body>
-    <div class="main_top">
-        <div class="logo-container">
-            <img src="images/Zeus512p.png" class="logo" style="height: 150px; width: 150px;">
-        </div>
-        <div class="wall"></div>
-        <div class="logos-container">
-            <div class="link_buttons_container">
-                <a href="http://www.discord.com/" class="link_button"><i class="fa-brands fa-discord fa-2xl" id="logo"></i></a>
-                <a href="http://www.youtube.com/" class="link_button"><i class="fa-brands fa-youtube fa-2xl" id="logo"></i></a>
-                <a href="http://www.tiktok.com/" class="link_button"><i class="fa-brands fa-tiktok fa-2xl" id="logo"></i></a>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Coming Soon - Z3US</title>
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   </head>
+   <body>
+     <img src="images/Zeus512p.png" alt="#" style="position: absolute; top: 10px; left: 10px; width: 100px;">
+      <div class="wrapper">
+         <div class="title">
+            Our website is <span>Coming soon</span>, follow us <br> for an update now!
+         </div>
+         <form action="#" class="form">
+            <div class="email-field">
+               <input type="email" placeholder="Enter Email Address" disabled>
+               <button type="submit" disabled>Subscribe</button>
+               <div class="hover-message">This action is not available right now.</div>
             </div>
-        </div>
-    </div>
-    <div class="wip">
-        <i class="fa-solid fa-hourglass-start" id="clock"></i>
-        <h3 id="countdown"></h3>
-        <h2>This site is Work in progress, please retry again later :(</h2>
-        <div class="button ">
-            <div class="text-icon">
-              <i class="fa-solid fa-file-arrow-down"></i>
-              <span class="text">Download Info txt</span>
-        </div>
-    </div>
-
-    <script>
-        const button = document.querySelector(".button"),
-          text = document.querySelector(".text");
-        button.addEventListener("click", () => {
-          button.classList.add("progress");
-          text.innerText = "Downloading...";
-          setTimeout(() => {
-            button.classList.remove("progress"); //remove progress after 6s
-            text.innerText = "See your Downloads!";
-      
-            // Create a dynamic <a> element
-            const link = document.createElement("a");
-            link.href = "downloads/Zeus_info.txt";
-            link.download = "Zeus_info.txt";
-      
-            // Simulate a click event on the dynamic <a> element
-            link.click();
-          }, 6000);
-        });
+         </form>
+         <div class="count-down">
+            <div class="timer day">
+               <div class="count">
+                  <div class="numb">
+                     00
+                  </div>
+                  <div class="text">
+                     Days
+                  </div>
+               </div>
+            </div>
+            <div class="clone">
+               :
+            </div>
+            <div class="timer hour">
+               <div class="count">
+                  <div class="numb">
+                     00
+                  </div>
+                  <div class="text">
+                     Hours
+                  </div>
+               </div>
+            </div>
+            <div class="clone">
+               :
+            </div>
+            <div class="timer min">
+               <div class="count">
+                  <div class="numb">
+                     00
+                  </div>
+                  <div class="text">
+                     Minutes
+                  </div>
+               </div>
+            </div>
+            <div class="clone">
+               :
+            </div>
+            <div class="timer sec">
+               <div class="count">
+                  <div class="numb">
+                     00
+                  </div>
+                  <div class="text">
+                     Seconds
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         const day = document.querySelector(".day .numb");
+         const hour = document.querySelector(".hour .numb");
+         const min = document.querySelector(".min .numb");
+         const sec = document.querySelector(".sec .numb");
+         var timer = setInterval(()=>{
+           var currentDate = new Date().getTime();
+           var launchDate = new Date('Jul 14, 2023 23:59:59').getTime();
+           var duration = launchDate - currentDate;
+           var days = Math.floor(duration / (1000 * 60 * 60 * 24));
+           var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+           var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+           var seconds = Math.floor((duration % (1000 * 60)) / 1000);
+           day.innerHTML = days;
+           hour.innerHTML = hours;
+           min.innerHTML = minutes;
+           sec.innerHTML = seconds;
+           if(days < 10){
+             day.innerHTML = '0' + days;
+           }
+           if(hours < 10){
+             hour.innerHTML = '0' + hours;
+           }
+           if(minutes < 10){
+             min.innerHTML = '0' + minutes;
+           }
+           if(seconds < 10){
+             sec.innerHTML = '0' + seconds;
+           }
+           if(duration < 0){
+             clearInterval(timer);
+           }
+         }, 1000);
       </script>
-      <script src="index.js"></script>
-</body>
+      <style>
+        .form {
+            margin: 50px;
+        }
+        .email-field {
+            position: relative;
+            display: inline-block;
+        }
+        .email-field .hover-message {
+            position: absolute;
+            background-color: #ff9999;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+        .email-field:hover .hover-message {
+            display: block;
+        }
+      </style>
+   </body>
 </html>
