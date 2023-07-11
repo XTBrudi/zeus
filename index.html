@@ -1,3 +1,4 @@
+<!--Patch 1.0v2-->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
    <head>
@@ -73,38 +74,45 @@
          </div>
       </div>
       <script>
-         const day = document.querySelector(".day .numb");
-         const hour = document.querySelector(".hour .numb");
-         const min = document.querySelector(".min .numb");
-         const sec = document.querySelector(".sec .numb");
-         var timer = setInterval(()=>{
-           var currentDate = new Date().getTime();
-           var launchDate = new Date('Jul 14, 2023 23:59:59').getTime();
-           var duration = launchDate - currentDate;
-           var days = Math.floor(duration / (1000 * 60 * 60 * 24));
-           var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-           var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
-           var seconds = Math.floor((duration % (1000 * 60)) / 1000);
-           day.innerHTML = days;
-           hour.innerHTML = hours;
-           min.innerHTML = minutes;
-           sec.innerHTML = seconds;
-           if(days < 10){
-             day.innerHTML = '0' + days;
-           }
-           if(hours < 10){
-             hour.innerHTML = '0' + hours;
-           }
-           if(minutes < 10){
-             min.innerHTML = '0' + minutes;
-           }
-           if(seconds < 10){
-             sec.innerHTML = '0' + seconds;
-           }
-           if(duration < 0){
-             clearInterval(timer);
-           }
-         }, 1000);
+const day = document.querySelector(".day .numb");
+const hour = document.querySelector(".hour .numb");
+const min = document.querySelector(".min .numb");
+const sec = document.querySelector(".sec .numb");
+
+var timer = setInterval(() => {
+  var currentDate = new Date().getTime();
+  var launchDate = new Date('Jul 11, 2023 13:47:00').getTime();
+  var duration = launchDate - currentDate;
+
+  if (duration < 0) {
+    clearInterval(timer);
+    day.innerHTML = "00";
+    hour.innerHTML = "00";
+    min.innerHTML = "00";
+    sec.innerHTML = "00";
+  } else {
+    var days = Math.floor(duration / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((duration % (1000 * 60)) / 1000);
+
+    day.innerHTML = days < 10 ? '0' + days : days;
+    hour.innerHTML = hours < 10 ? '0' + hours : hours;
+    min.innerHTML = minutes < 10 ? '0' + minutes : minutes;
+
+    if (seconds < 10 && duration >= 30000) {
+      sec.innerHTML = '0' + seconds;
+    } else {
+      sec.innerHTML = seconds;
+    }
+
+    if (duration < 60000) {
+      sec.style.animation = 'blink 1s infinite';
+    } else {
+      sec.style.animation = 'none';
+    }
+  }
+}, 1000);
       </script>
       <style>
         .form {
