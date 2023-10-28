@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: black;
+  background-size: cover;
+  background-position: center;
+}
+::selection{
+  color: #ffffff;
+  background: #414141;
+}
+.wrapper{
+  color: #fff;
+  max-width: 900px;
+  text-align: center;
+  padding: 0 50px;
+}
+.wrapper .title{
+  font-size: 35px;
+  font-weight: 500;
+}
+.wrapper .title span{
+  font-weight: 700;
+}
+.wrapper form{
+  margin: 50px 0;
+}
+.wrapper form .email-field{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .email-field input{
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+form .email-field button{
+  height: 100%;
+  width: 200px;
+  outline: none;
+  border: none;
+  background: #1d1d1d;
+  color: #5f5f5f;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.wrapper .count-down{
+  display: flex;
+  width: 100%;
+  height: 100px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.wrapper .count-down .timer{
+  height: 100%;
+  width: 100px;
+  /*border: 2px solid;*/
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.count-down .timer .numb{
+  font-size: 25px;
+  font-weight: 500;
+}
+.count-down .timer .text{
+  font-size: 15px;
+}
+.count-down .clone{
+  font-size: 45px;
+}
+@media (max-width: 630px) {
+  .wrapper .count-down{
+    height: 80px;
+  }
+  .wrapper .count-down .timer{
+    width: 80px;
+  }
+  .count-down .timer .numb{
+    font-size: 20px;
+  }
+  .count-down .timer .text{
+    font-size: 13px;
+  }
+  .count-down .clone{
+    font-size: 40px;
+  }
+}
+@media (max-width: 542px){
+  .wrapper{
+    padding: 0 20px;
+  }
+  .wrapper .count-down .timer{
+    border: none;
+  }
+  .count-down .timer .numb{
+    font-size: 28px;
+  }
+  .count-down .timer .text{
+    font-size: 15px;
+  }
+  .count-down .clone{
+    display: none;
+  }
+  .form .email-field button{
+    width: 150px;
+    font-size: 17px;
+  }
+}
+@media (max-width: 340px){
+  .wrapper .count-down{
+    height: 30px;
+  }
+  .wrapper .count-down .timer{
+    width: 30px;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+.container{
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    background: #161616;
+    margin: 0 15px;
+    padding: 10px 20px;
+    border-radius: 7px;
+}
+.container .skill-box{
+    width: 100%;
+    margin: 25px 0;
+}
+.skill-box .title{
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #474747;
+}
+.skill-box .skill-bar{
+    height: 8px;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 6px;
+    background: rgba(0, 0, 0, 0.2);
+}
+.skill-bar .skill-per{
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 90%;
+    border-radius: 6px;
+    background: #ff0000;
+    animation: progress 0.4s ease-in-out forwards;
+    opacity: 0;
+}
+.skill-per.css{
+    width: 50%;
+    animation-delay: 0.1s;
+}
+.skill-per.javascript{
+    width: 80%;
+    animation-delay: 0.2s;
+}
+.skill-per.nodejs{
+    width: 40%;
+    animation-delay: 0.3s;
+}
+@keyframes progress {
+    0%{
+        width: 0;
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.skill-per .tooltip{
+    position: absolute;
+    right: -14px;
+    top: -28px;
+    font-size: 9px;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: #424242;
+    z-index: 1;
+}
+.tooltip::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+    background-color: #424242;
+    transform: translateX(-50%) rotate(45deg);
+
+}
